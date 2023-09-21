@@ -72,4 +72,21 @@ public class Controller03 {
         System.out.println("married = " + married);
         System.out.println("age = " + age);
     }
+
+    //if value is not necessary
+    @RequestMapping("sub9")
+    public void method9(@RequestParam(value = "name", required=false) String name) {
+        System.out.println("name = " + name);
+    }
+
+    @RequestMapping("sub10")
+    public void method10(@RequestParam("address") String address,
+                         @RequestParam(value="age", required = false) Integer age) {
+        System.out.println("address = " + address);
+        System.out.println("age = " + age);
+    }
+    @RequestMapping("sub11")
+    public void method11(@RequestParam(value = "age", defaultValue = "0") Integer age) {
+        System.out.println(age);
+    }
 }
