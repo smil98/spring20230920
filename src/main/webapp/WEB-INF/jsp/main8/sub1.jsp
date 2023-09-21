@@ -11,6 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Hellooooooo</h1>
+    <h1>Using Model</h1>
+        <h2>${attr1}</h2>
+            <p>속성1: ${attr1}</p>
+        <h2>${attr2}</h2>
+            <p>속성2: ${attr2}</p>
 </body>
 </html>
