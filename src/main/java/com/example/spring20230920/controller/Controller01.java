@@ -10,7 +10,7 @@ public class Controller01 {
         System.out.println("Controller01.method1");
     }
 
-    @RequestMapping("/path1")
+    @RequestMapping("/path1") //route
     public void method2() {
         System.out.println("Controller01.method2");
     }
@@ -18,5 +18,10 @@ public class Controller01 {
     @RequestMapping("/path2")
     public void method3() {
         System.out.println("Controller01.method3");
+    }
+
+    @RequestMapping("path5") //can omit slash
+    public void method4() {
+        System.out.println("Controller01.method4");
     }
 }
