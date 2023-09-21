@@ -12,6 +12,7 @@
     <style>
       h1 {
         text-align: center;
+        margin-top: 5%;
       }
       p {
         font-size:20px;
@@ -23,8 +24,8 @@
     </style>
 </head>
 <body>
-<h1>Practice Printing Emojis as Asked</h1>
-<p>First Emoji: <br><span>${propone}</span></p>
-<p>Second Emoji: <br><span>${propTWO}</span></p>
+  <h1>Practice Printing Emojis as Asked</h1>
+  <p>First Emoji: <br><span>${propone}</span></p>
+  <p>Second Emoji: <br><span>${propTWO}</span></p>
 </body>
 </html>
