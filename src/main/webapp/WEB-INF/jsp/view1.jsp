@@ -15,6 +15,5 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur cumque distinctio doloremque
         eligendi, eum fugit iure laudantium nisi nobis numquam, quis quos rem reprehenderit, similique tenetur voluptatibus?
         Nobis, sequi.</p>
-
 </body>
 </html>
