@@ -32,5 +32,10 @@
     <c:forEach begin="0" end="2" var="car">
         <li>car: ${myList[car]}</li>
     </c:forEach>
+    <hr>
+    <!-- Even though you don't know length of myList can use loop in this form -->
+    <c:forEach items="${myList}" var="item">
+        <li>car: ${item}</li>
+    </c:forEach>
 </body>
 </html>
