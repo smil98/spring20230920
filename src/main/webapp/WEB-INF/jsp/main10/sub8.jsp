@@ -10,6 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+      li {
+        font-weight: bold;
+        font-size:1.3rem;
+        color:blue;
+      }
+    </style>
 </head>
 <body>
 <h1>Logical Operators</h1>
@@ -43,7 +50,7 @@
   <p>${a} != ${b} = ${a ne b}</p>
   <p>${c} == ${d} = ${c ne d}</p>
 </ul>
-<ul><h2>el Logical Operators 2</h2>
+<ul><h2>EL Logical Operators 2</h2>
   <li>&& (and) </li>
   <p>\${true && true} : ${true && true}</p>
   <p>\${true && false} : ${true && false}</p>
@@ -54,6 +61,11 @@
   <p>\${true || false} : ${true || false}</p>
   <p>\${false or true} : ${false or true}</p>
   <p>\${false or false} : ${false or false}</p>
+  <li>! (not)</li>
+  <p>\${!true}</p>
+  <p>\${!false}</p>
+  <p>\${not true}</p>
+  <p>\${not false}</p>
 </ul>
 </body>
 </html>

@@ -106,5 +106,6 @@ public class Controller10 {
         model.addAttribute("d", List.of());
         model.addAttribute("e", Map.of("name", "son"));
         model.addAttribute("f", Map.of());
+        model.addAttribute("g", null);
     }
 }
