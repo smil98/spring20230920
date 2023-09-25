@@ -14,7 +14,7 @@
 <body>
 <h1>Jstl choose, when, otherwise tag</h1>
 <c:choose>
-    <!-- Only shows up first true-->
+    <%-- Only shows up first true--%>
     <c:when test="false">
         <p>when 1</p>
     </c:when>

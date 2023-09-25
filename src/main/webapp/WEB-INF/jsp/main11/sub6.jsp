@@ -12,11 +12,12 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Can I vote?</h1>
 <c:choose>
-    <c:when test="${param.age ge 20}">
+    <c:when test="${param.age >= 20}">
         <p>can vote</p>
     </c:when>
-    <c:when test="${param.age lt 20}">
+    <c:when test="${param.age < 20}">
         <p>cannot vote</p>
     </c:when>
     <c:otherwise>
