@@ -2,6 +2,7 @@ package com.example.spring20230920.controller;
 
 import com.example.spring20230920.domain.MyDto11;
 import com.example.spring20230920.domain.MyDto12;
+import com.example.spring20230920.domain.MyDto13;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,7 +15,10 @@ import java.util.List;
 @Controller
 @RequestMapping("main13")
 public class Controller13 {
-    @RequestMapping({"sub1", "sub2","sub4", "sub7", "sub9", "sub11"})
+    @RequestMapping({"sub1", "sub2",
+            "sub4", "sub7",
+            "sub9", "sub11",
+            "sub13"})
     public void method1() {}
 
     @RequestMapping("sub3")
@@ -75,5 +79,16 @@ public class Controller13 {
     @RequestMapping("sub12")
     public void method12(MyDto13 vo) {
         System.out.println("vo = " + vo);
+    }
+
+    @RequestMapping("sub14")
+    public void method14(String hobby,
+                         List<String> food) {
+        System.out.println("hobby = " + hobby);
+        if(food != null) {
+            System.out.println("-----food-----");
+            food.forEach(System.out::println);
+        }
+
     }
 }
