@@ -30,6 +30,9 @@
 <%--        can change the increment / decrement--%>
     </div>
     <div>
+<%--        difference btw submit input and button:--%>
+<%--        - you can only insert by modifying value property for input--%>
+<%--        - button has a closing tag, so the content is inserted in between tags--%>
         <input type="submit" name="param6" value="sign in">
     </div>
     <div>
@@ -88,6 +91,29 @@
 <%--        allows file attachments, default =1 file, mutiple--%>
         <input type="file" multiple>
     </div>
+    <hr>
+
+    <form action="/main13/sub2">
+        <label for="input1">blah</label>
+        <input id="input1" type="text">
+        <br>
+        <div>
+<%--            also able to click label--%>
+            <div>
+                <label for="check1">Lorem.</label>
+                <input type="checkbox" name="" id="check1">
+            </div>
+            <div>
+                <label for="check2">Quisquam!</label>
+                <input type="checkbox" name="" id="check2">
+            </div>
+            <div>
+                <label for="check3">Ipsum!</label>
+                <input type="checkbox" name="" id="check3">
+            </div>
+
+        </div>
+    </form>
 </form>
 </body>
 </html>
