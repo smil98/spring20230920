@@ -1,16 +1,13 @@
 package com.example.spring20230920.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("main14")
 public class Controller14 {
-    @RequestMapping({"sub1","sub3"})
+    @GetMapping({"sub1","sub3"})
     public void method1() {
-
     }
 
     //can assign different methods according to requestMethod
@@ -37,9 +34,11 @@ public class Controller14 {
         System.out.println("password = " + password);
     }
 
-    @RequestMapping(value="sub4", method=RequestMethod.POST)
+    //can shorten down to this form, GetMapping/PostMapping
+    @PostMapping("sub4")
     public void method4(String title, String content) {
         System.out.println("title = " + title);
         System.out.println("content = " + content);
     }
+
 }
