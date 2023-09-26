@@ -41,4 +41,26 @@ public class Controller14 {
         System.out.println("content = " + content);
     }
 
+    /*shorten down both request mapping, and create corresponding jsp
+    @RequestMapping(value = "sub5", method = RequestMethod.GET)
+    public void method5() {}
+
+    @RequestMapping(value = "sub6", method = RequestMethod.POST)
+    public void method6(
+            String username,
+            String password
+    ) {
+        System.out.println("username = " + username);
+        System.out.println("password = " + password);
+    }*/
+    @GetMapping("sub5")
+    public void method5() {}
+
+    @PostMapping("sub6")
+    public void method6(String userName,
+                        String password) {
+        System.out.println("userName = " + userName);
+        System.out.println("password = " + password);
+    }
+
 }
