@@ -80,4 +80,10 @@ public class Controller15 {
         session.setAttribute("attr1", "coffee");
     }
 
+    @GetMapping("sub11")
+    public void method11(Model model, HttpSession session) {
+        model.addAttribute("items", List.of("두식", "봉식"));
+        session.setAttribute("items", List.of("피자", "햄버거", "돈까스"));
+    }
+
 }
