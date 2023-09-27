@@ -11,7 +11,7 @@ public class Controller08 {
     public void method1(Model model) {
         model.addAttribute("attr1","value1");
         model.addAttribute("attr2","value2");
-        //forward to /WEB-INF/jsp/main8/sub1.jsp
+        //forward to /WEB-INF/jsp/main8/list.jsp
         //can be used as map, as first = name(String) sec = value(Object)
         //so in jsp file where {attr1} is, "value" is returned and placed
     }
