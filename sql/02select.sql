@@ -62,3 +62,12 @@ SELECT products.ProductID, products.ProductName, suppliers.SupplierName
 FROM products
 INNER JOIN suppliers
 ON products.SupplierID = suppliers.SupplierID;
+
+SELECT COUNT(DISTINCT Country)
+FROM suppliers;
+
+SELECT COUNT(*) FROM orders;
+
+SELECT COUNT(*) FROM categories;
+
+SELECT COUNT(DISTINCT City) FROM customers;
