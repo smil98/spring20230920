@@ -214,4 +214,127 @@ public class Controller19 {
 
         return "/main19/sub5";
     }
+
+    @GetMapping("sub8")
+    public void method8() {
+
+    }
+    @GetMapping("sub9")
+    public String method9(Integer pid, Model model) throws SQLException {
+        String sql = """
+                SELECT ProductID, ProductName, Unit, Price
+                FROM products
+                WHERE ProductID =
+                """;
+        sql += pid;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        List<MyDto16> list = new ArrayList<>();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        try(connection; statement; resultSet) {
+            while(resultSet.next()) {
+                MyDto16 dto = new MyDto16();
+                dto.setPid(resultSet.getInt(1));
+                dto.setProductName(resultSet.getString(2));
+                dto.setUnit(resultSet.getString(3));
+                dto.setPrice(resultSet.getDouble(4));
+
+                list.add(dto);
+            }
+        }
+
+        model.addAttribute("products", list);
+
+        return "/main19/sub5";
+    }
+
+    @GetMapping("sub10")
+    public void method10() {
+
+    }
+
+    @GetMapping("sub11")
+    public String method11(Integer cid, Model model) throws SQLException {
+        String sql = """
+                SELECT CustomerID, CustomerName, Address, Country
+                FROM customers
+                WHERE CustomerID =
+                """ + cid;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        List<MyDto15> list = new ArrayList<>();
+
+        try(connection; statement; resultSet) {
+            while(resultSet.next()) {
+                MyDto15 dto = new MyDto15();
+                dto.setId(resultSet.getInt(1));
+                dto.setName(resultSet.getString(2));
+                dto.setAddress(resultSet.getString(3));
+                dto.setCountry(resultSet.getString(4));
+
+                list.add(dto);
+            }
+        }
+        model.addAttribute("customerList", list);
+
+        return "/main19/sub6";
+    }
+
+    @GetMapping("sub12")
+    public void method12(Model model) throws SQLException {
+        String sql = """
+                SELECT DISTINCT country 
+                FROM customers
+                """;
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<String> list = new ArrayList<>();
+
+        try (connection; statement; resultSet) {
+            while (resultSet.next()) {
+                String country = resultSet.getString(1);
+
+                list.add(country);
+            }
+
+        }
+
+        model.addAttribute("countryList", list);
+    }
+
+    @GetMapping("sub13")
+    public String method13(String country, Model model) throws SQLException {
+        String sql = """
+                SELECT CustomerID, CustomerName, Address, Country
+                FROM customers
+                WHERE Country = '""" + country + "'";
+
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        List<MyDto15> list = new ArrayList<>();
+
+        try (connection; statement; resultSet) {
+            while (resultSet.next()) {
+                MyDto15 dto = new MyDto15();
+                dto.setId(resultSet.getInt(1));
+                dto.setName(resultSet.getString(2));
+                dto.setAddress(resultSet.getString(3));
+                dto.setCountry(resultSet.getString(4));
+
+                list.add(dto);
+            }
+        }
+        model.addAttribute("customerList", list);
+
+        return "/main19/sub6";
+    }
 }
