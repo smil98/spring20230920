@@ -37,7 +37,6 @@
         a {
             text-decoration: none;
             margin-left:50%;
-            transform:translateX(-50%);
         }
         a:hover {
             font-weight: bold;
