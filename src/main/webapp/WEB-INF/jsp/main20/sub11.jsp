@@ -34,9 +34,12 @@
             background-color: yellow;
             transition:0.5s;
         }
+        div {
+            width:10%;
+            margin-left:45%;
+        }
         a {
             text-decoration: none;
-            margin-left:50%;
         }
         a:hover {
             font-weight: bold;
@@ -73,6 +76,8 @@
     </c:forEach>
 </table>
 <br>
-<a href="http://localhost:8080/main20/sub10">Return to Redo</a>
+<div>
+    <a href="http://localhost:8080/main20/sub10">Return to Redo</a>
+</div>
 </body>
 </html>
