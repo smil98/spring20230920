@@ -11,7 +11,7 @@
 <head>
     <title>Title</title>
     <style>
-        h1 {
+        h1, h2 {
             margin-left: 50%;
             transform:translateX(-50%);
             text-align:center;
@@ -50,7 +50,10 @@
     </style>
 </head>
 <body>
-<h1>Supplier List for ${countryList}</h1>
+<%--<h1>Supplier List for ${countryList}</h1>--%>
+<h1>Supplier List</h1>
+<h2>${errorMessage}</h2>
+<h2>${currentPage} / ${totalPage}</h2>
 <table>
     <tr>
         <th>ID</th>
@@ -77,7 +80,7 @@
 </table>
 <br>
 <div>
-    <a href="http://localhost:8080/main20/sub10">Return to Redo</a>
+    <a href="http://localhost:8080/main20/sub10">View by Country</a>
 </div>
 </body>
 </html>
