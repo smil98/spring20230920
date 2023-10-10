@@ -1,6 +1,5 @@
 package com.example.spring20230920.controller;
 
-import com.example.spring20230920.domain.MyDto15;
 import com.example.spring20230920.domain.Suppliers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -168,28 +166,6 @@ public class Controller22 {
             }
         }
 
-//        if( (p - 3) <= 0) {
-//            model.addAttribute("startPage", 1);
-//            model.addAttribute("endPage", 7);
-//        } else {
-//            model.addAttribute("startPage", p-3);
-//            if( (p + 3) > totalPage) {
-//                switch(totalPage-p) {
-//                    case 0:
-//                        model.addAttribute("startPage", p-6);
-//                        break;
-//                    case 1:
-//                        model.addAttribute("startPage", p-5);
-//                        break;
-//                    case 2:
-//                        model.addAttribute("startPage", p-4);
-//                        break;
-//                }
-//                model.addAttribute("endPage", totalPage);
-//            } else {
-//                model.addAttribute("endPage", p+3);
-//            }
-//        }
         int startPage = 0;
         startPage = ((p-1)/5)*5+1;
         int endPage = startPage+4;
