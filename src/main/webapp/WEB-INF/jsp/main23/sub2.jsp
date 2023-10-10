@@ -36,9 +36,9 @@
     <tr>
         <th>Customer Name</th>
     </tr>
-    <c:forEach items="${customers}" var="customer">
+    <c:forEach items="${customers}" var="supplier">
         <tr>
-            <td>${customer}</td>
+            <td>${supplier}</td>
         </tr>
     </c:forEach>
 </table>

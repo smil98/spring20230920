@@ -53,10 +53,10 @@
         <th>ID</th>
         <th>Name</th>
     </tr>
-    <c:forEach items="${customerList}" var="customer">
+    <c:forEach items="${customerList}" var="supplier">
         <tr>
-            <td>${customer.id}</td>
-            <td>${customer.name}</td>
+            <td>${supplier.id}</td>
+            <td>${supplier.name}</td>
         </tr>
     </c:forEach>
 </table>

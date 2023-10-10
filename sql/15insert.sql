@@ -54,3 +54,6 @@ VALUE (80, 'Oreo', 13, '3', '2 boxes', 9.10);
 
 INSERT INTO products(productname, supplierid, categoryid, unit, price)
 VALUE ('Kimchi', 13, '3', '1 bowl', 13.10);
+
+SELECT * FROM suppliers;
+SELECT * FROM employees;

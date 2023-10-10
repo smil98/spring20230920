@@ -56,10 +56,10 @@
         <th>Customer Name</th>
         <th>Contact Name</th>
     </tr>
-    <c:forEach items="${customers}" var="customer">
+    <c:forEach items="${customers}" var="supplier">
         <tr>
-            <td>${customer.customerName}</td>
-            <td>${customer.contactName}</td>
+            <td>${supplier.customerName}</td>
+            <td>${supplier.contactName}</td>
         </tr>
     </c:forEach>
 </table>
