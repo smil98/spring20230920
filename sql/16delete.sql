@@ -17,3 +17,5 @@ DELETE FROM employees WHERE EmployeeID >=12;
 
 SELECT * FROM products WHERE ProductID BETWEEN 78 AND 82;
 DELETE FROM products WHERE ProductID BETWEEN 78 AND 82;
+
+SELECT * FROM products;
