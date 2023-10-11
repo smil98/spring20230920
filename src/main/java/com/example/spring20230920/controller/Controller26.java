@@ -34,7 +34,7 @@ public class Controller26 {
             statement.setTimestamp(5, Timestamp.valueOf(LocalDateTime.now()));
 
             int rows = statement.executeUpdate();
-            if (row == 1) {
+            if (rows == 1) {
                 System.out.println("Update Sucessful");
             } else {
                 System.out.println("Oops! Something is Wrong!");
