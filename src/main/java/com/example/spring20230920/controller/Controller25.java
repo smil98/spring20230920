@@ -1,5 +1,6 @@
 package com.example.spring20230920.controller;
 
+import com.example.spring20230920.domain.MyDto18Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,12 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.Map;
 
 @Controller
@@ -168,4 +165,89 @@ public class Controller25 {
         rttr.addAttribute("id", shipperId);
         return "redirect:/main25/sub4";
     }
+    @GetMapping("sub5")
+    public void method5(@RequestParam(value = "id", required = false) Integer employeeId, Model model) throws SQLException {
+        if (employeeId == null) {
+            return;
+        }
+        String sql = """
+                SELECT * FROM employees
+                WHERE employeeId = ?
+                """;
+
+        Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        try (connection; statement) {
+            statement.setInt(1, employeeId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            try (resultSet) {
+                if (resultSet.next()) {
+                    String lastName = resultSet.getString("lastName");
+                    String firstName = resultSet.getString("firstName");
+                    LocalDate birthDate = resultSet.getTimestamp("birthDate").toLocalDateTime().toLocalDate();
+                    String photo = resultSet.getString("photo");
+                    String notes = resultSet.getString("notes");
+
+                    model.addAttribute("employee", Map.of("lastName", lastName,
+                            "firstName", firstName,
+                            "birthDate", birthDate,
+                            "photo", photo,
+                            "notes", notes,
+                            "employeeId", employeeId));
+
+                }
+            }
+        }
+    }
+
+
+    @PostMapping("sub5")
+    public String method6(
+            @RequestParam("id") Integer employeeID,
+            @RequestParam("lastName") String lastName,
+            @RequestParam("firstName") String firstName,
+            @RequestParam("birthDate") LocalDate birthDate,
+            @RequestParam("photo") String photo,
+            @RequestParam("notes") String notes,
+            RedirectAttributes rttr,
+            Model model
+    ) throws SQLException {
+        String sql = """
+                UPDATE employees
+                SET LastName = ?,
+                    FirstName = ?,
+                    BirthDate = ?,
+                    Photo = ?,
+                    Notes = ?
+                WHERE
+                    EmployeeID = ?
+                """;
+
+        Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        try(connection; statement) {
+            statement.setString(1, lastName);
+            statement.setString(2, firstName);
+            statement.setTimestamp(3, Timestamp.valueOf(birthDate.atStartOfDay()));            statement.setString(4, photo);
+            statement.setString(4, photo);
+            statement.setString(5, notes);
+            statement.setInt(6, employeeID);
+
+            int row = statement.executeUpdate();
+
+            if(row == 1) {
+                rttr.addFlashAttribute("message","Update Sucessful");
+            } else {
+                rttr.addFlashAttribute("message","Oops! Something has gone wrong");
+            }
+        }
+
+        rttr.addAttribute("id", employeeID);
+        return "redirect:/main25/sub5";
+    }
 }
+
