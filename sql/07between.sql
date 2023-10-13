@@ -32,5 +32,14 @@ WHERE OrderDate BETWEEN '1998-02-01' AND '1998-02-28';
 SELECT * FROM employees
 WHERE BirthDate BETWEEN '1958-09-01' AND '1958-09-31';
 
+-- CREATE new table table_d
+-- having productName, categoryName, price col
+-- for products in category 1
 
+CREATE TABLE table_d
+SELECT ProductName, CategoryName, Price
+FROM products NATURAL JOIN categories
+WHERE CategoryID = 1;
+
+SELECT * FROM table_d;
 
