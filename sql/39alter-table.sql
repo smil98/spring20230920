@@ -19,3 +19,19 @@ ADD COLUMN col5 VARCHAR(10) NOT NULL UNIQUE DEFAULT 'BLANK' REFERENCES employees
 
 DESC products;
 
+-- Practice
+ALTER TABLE employees
+ADD COLUMN salary DEC(10, 2) NOT NULL DEFAULT 0.00;
+
+-- Delete Columns
+ALTER TABLE products
+DROP COLUMN col1;
+
+-- Modify col type
+ALTER TABLE products
+MODIFY COLUMN col3 INT;
+-- if value exists in column(and data type doesn't match) can't modify data type
+-- extending varchar limit is fine, but shrinking must be done with caution
+
+
+
