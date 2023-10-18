@@ -1,7 +1,7 @@
 package com.example.spring20230920.dao;
 
-import com.example.spring20230920.domain.MyDto25;
-import com.example.spring20230920.domain.MyDto26;
+import com.example.spring20230920.domain.*;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -49,4 +49,35 @@ public interface MyDao4 {
     WHERE Country IN (#{country1}, #{country2})
     """)
     List<String> select5(MyDto26 dto);
+
+    //if there is more than one bean, then must identify which one
+    @Select("""
+            SELECT COUNT(OrderID)
+            FROM orders
+            WHERE OrderDate BETWEEN #{dto1.from} AND #{dto2.to}
+            """)
+    Integer select6(MyDto27 dto1, MyDto28 dto2);
+
+    @Select("""
+    SELECT CustomerName
+    FROM customers
+    WHERE CustomerName LIKE #{dto2.keyword}
+    LIMIT #{dto1.from}, #{dto1.rows}
+    """)
+    List<String> select7(MyDto29 dto1, MyDto30 dto2);
+
+    @Insert("""
+    INSERT INTO customers(CustomerName, Country)
+    VALUE (#{name}, #{country})
+    """)
+    Integer insert1(MyDto31 dto);
+
+    @Insert("""
+    INSERT INTO employees(LastName, FirstName)
+    VALUE (#{lastName}, #{firstName})
+    """)
+    Integer insert2(MyDto32 dto);
+    //can set void then MyBatis will automatically return nothing
+
+
 }

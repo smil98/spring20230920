@@ -32,4 +32,3 @@ ALTER TABLE products
 MODIFY COLUMN col3 INT;
 -- if value exists in column(and data type doesn't match) can't modify data type
 -- extending varchar limit is fine, but shrinking must be done with caution
-

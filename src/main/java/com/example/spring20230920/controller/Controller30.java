@@ -1,11 +1,11 @@
 package com.example.spring20230920.controller;
 
 import com.example.spring20230920.dao.MyDao4;
-import com.example.spring20230920.domain.MyDto25;
-import com.example.spring20230920.domain.MyDto26;
+import com.example.spring20230920.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
@@ -46,5 +46,35 @@ public class Controller30 {
     public void method5(MyDto26 dto) {
         List<String> list = dao.select5(dto);
         list.forEach(System.out::println);
+    }
+
+    @GetMapping("sub6")
+    public void method6(MyDto27 dto1, MyDto28 dto2) {
+        Integer num = dao.select6(dto1, dto2);
+        System.out.println("num = " + num);
+    }
+
+    @GetMapping("sub7")
+    public void method7(MyDto29 dto1, MyDto30 dto2) {
+        dto2.setKeyword("%" + dto2.getKeyword() + "%");
+        dto1.setFrom((dto1.getPage()-1)*dto1.getRows());
+        List<String> names = dao.select7(dto1, dto2);
+        names.forEach(System.out::println);
+    }
+
+    @GetMapping("sub8")
+    public void method8(MyDto31 dto) {
+        int rows = dao.insert1(dto);
+        System.out.println(rows + " rows has been inserted");
+    }
+
+    @GetMapping("sub9")
+    public void method9() {
+    }
+
+    @PostMapping("sub10")
+    public void method10(MyDto32 dto) {
+        int row = dao.insert2(dto);
+        System.out.println(row + " rows has been inserted");
     }
 }
