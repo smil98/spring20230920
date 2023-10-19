@@ -1,9 +1,7 @@
 package com.example.spring20230920.dao;
 
 import com.example.spring20230920.domain.*;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -71,13 +69,61 @@ public interface MyDao4 {
     VALUE (#{name}, #{country})
     """)
     Integer insert1(MyDto31 dto);
+    //can set void then MyBatis will automatically return nothing
 
     @Insert("""
     INSERT INTO employees(LastName, FirstName)
     VALUE (#{lastName}, #{firstName})
     """)
     Integer insert2(MyDto32 dto);
-    //can set void then MyBatis will automatically return nothing
+
+    @Delete("""
+    DELETE FROM customers
+    WHERE CustomerID = #{id}
+    """)
+    int delete1(Integer id);
+
+    @Delete("""
+    DELETE FROM products
+    WHERE ProductID = 3
+    """)
+    int delete2();
+
+    @Select("""
+    SELECT *
+    FROM employees
+    WHERE EmployeeID = #{employeeId}
+    """)
+    MyDto33 select8(Integer employeeId);
 
 
+    @Update("""
+    UPDATE employees
+    SET LastName = #{lastName},
+        FirstName = #{firstName},
+        BirthDate = #{birthDate},
+        Notes = #{notes},
+        Photo = #{photo}
+    WHERE EmployeeID = #{employeeId}
+    """)
+    int update1(MyDto33 employee);
+
+    @Select("""
+    SELECT *
+    FROM customers
+    WHERE CustomerID = #{customerId}
+    """)
+    MyDto34 select9(Integer customerId);
+
+    @Update("""
+    UPDATE customers
+    SET CustomerName = #{customerName},
+        ContactName = #{contactName},
+        Address = #{address},
+        City = #{city},
+        PostalCode = #{postalCode},
+        Country = #{country}
+    WHERE CustomerID = #{customerId}
+    """)
+    int update2(MyDto34 customer);
 }
