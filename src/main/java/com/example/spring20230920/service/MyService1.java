@@ -7,11 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(rollbackFor = Exception.class) //if applied in class level, applies to all methods
 public class MyService1 {
 
     private final MyDao6 dao;
 
-    @Transactional
     public void tx1() {
         dao.update1();
 
