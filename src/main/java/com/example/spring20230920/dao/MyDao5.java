@@ -199,6 +199,7 @@ public interface MyDao5 {
         </trim>
         ORDER BY name, Country, City
     </script>
+    
     """)
     List<Map<String, Object>> listCustomer(MyDto36 dto);
 }
