@@ -6,4 +6,5 @@ import lombok.Data;
 public class MyDto38 {
     private Integer pk;
     private String lastName;
+    private String firstName;
 }
