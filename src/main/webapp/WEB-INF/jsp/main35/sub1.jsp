@@ -131,7 +131,7 @@
                             email
                             //if param name and const name are the same can omit
                         }
-                    })
+                    });
                 }
             </script>
         </div>
@@ -147,7 +147,7 @@
                         lastName: "son",
                         firstName: "heungMin"
                     }
-                })
+                });
             }
         </script>
     </div>
@@ -158,7 +158,7 @@
                 axios.request({
                     url:"/main35/sub7",
                     method:"post",
-                })
+                });
             }
         </script>
     </div>
@@ -230,6 +230,20 @@
                        name: document.querySelector("#input12").value,
                        files: document.querySelector("#input13").files
                     });
+                }
+            </script>
+        </div>
+    </div>
+    <div>
+        <div>
+            <button onclick="ajax13()">button13</button>
+            <script>
+                function ajax13() {
+                    // axios.request({
+                    //     url: "/main35/sub11",
+                    //     method:"get"
+                    // });
+                    axios.get("/main35/sub11");
                 }
             </script>
         </div>
