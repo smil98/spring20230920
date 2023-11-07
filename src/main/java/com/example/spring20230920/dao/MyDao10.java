@@ -1,5 +1,6 @@
 package com.example.spring20230920.dao;
 
+import com.example.spring20230920.domain.MyDto34;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -13,4 +14,10 @@ public interface MyDao10 {
     WHERE customerId = 5
     """)
     String selectCustomer();
+
+    @Select("""
+    SELECT * FROM customers
+    WHERE customerId = 5
+    """)
+    MyDto34 getCustomer();
 }
