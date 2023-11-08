@@ -42,4 +42,10 @@ public class RestController1 {
     public MyDto34 method4(Integer id) {
         return dao.selectCustomerById(id);
     }
+
+    @ResponseBody
+    @GetMapping("ex")
+    public Integer[] methodFetch() {
+        return dao.selectTotalRecord();
+    }
 }

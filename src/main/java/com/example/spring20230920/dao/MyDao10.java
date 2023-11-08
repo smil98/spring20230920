@@ -27,4 +27,11 @@ public interface MyDao10 {
     WHERE customerId = #{id}
     """)
     MyDto34 selectCustomerById(Integer id);
+
+    @Select("""
+    SELECT customerId
+    FROM customers
+    """)
+    Integer[] selectTotalRecord();
+
 }
