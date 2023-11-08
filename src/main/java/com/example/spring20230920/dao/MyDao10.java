@@ -34,4 +34,16 @@ public interface MyDao10 {
     """)
     Integer[] selectTotalRecord();
 
+    @Select("""
+    SELECT employeeId
+    FROM employees
+    """)
+    Integer[] selectTotalEmployee();
+
+    @Select("""
+    SELECT CONCAT(FirstName, ' ', LastName) employeeName
+    FROM employees
+    WHERE employeeId = #{id}
+    """)
+    String selectEmployeeById(Integer id);
 }

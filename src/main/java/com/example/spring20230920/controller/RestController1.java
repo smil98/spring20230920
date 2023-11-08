@@ -44,8 +44,20 @@ public class RestController1 {
     }
 
     @ResponseBody
+    @GetMapping("sub5")
+    public String method5(Integer id) {
+        return dao.selectEmployeeById(id);
+    }
+
+    @ResponseBody
     @GetMapping("ex")
     public Integer[] methodFetch() {
         return dao.selectTotalRecord();
+    }
+
+    @ResponseBody
+    @GetMapping("ex2")
+    public Integer[] methodFetch2() {
+        return dao.selectTotalEmployee();
     }
 }
