@@ -36,4 +36,10 @@ public class RestController1 {
     public MyDto34 method3() {
         return dao.getCustomer();
     }
+
+    @ResponseBody
+    @GetMapping("sub4")
+    public MyDto34 method4(Integer id) {
+        return dao.selectCustomerById(id);
+    }
 }
